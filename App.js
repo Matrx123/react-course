@@ -27,40 +27,41 @@ const Header = () => {
 const Body = () => {
   return (
     <div className="body">
-      <div className="search"></div>
+      <div className="search">Search</div>
       <div className="res-container">
-        <RestrauntCard />
-        <RestrauntCard />
-        <RestrauntCard />
-        <RestrauntCard />
-        <RestrauntCard />
-        <RestrauntCard />
+        <RestrauntCard
+          resName="Meghna Foods"
+          cuisine="Biryani, North Indian, South Indian"
+        />
+        <RestrauntCard
+          resName="Burger point"
+          cuisine="Burgers, North Indian, Fast food"
+        />
+        <RestrauntCard
+          resName="KFC"
+          cuisine="Biryani, Fried Chicken, Chicken Bucket"
+        />
+        <RestrauntCard
+          resName="Mc Donalds"
+          cuisine="Burgers, Fries, Fast food"
+        />
       </div>
     </div>
   );
 };
 
-const RestrauntCard = () => {
+const RestrauntCard = ({ resName, cuisine }) => {
   return (
-    <div className="res-card">
-      <div className="res-logo">
-        <img
-          className="res-logo-img"
-          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e33e1d3ba7d6b2bb0d45e1001b731fcf"
-          alt="res-logo"
-        />
-      </div>
-      <h3>Burger King</h3>
-      <div className="rating-container">
-        <h3>4.4</h3>
-        <h3>22 Mins</h3>
-      </div>
-      <div className="food-items">
-        <h3>Burgers, American</h3>
-      </div>
-      <div className="location">
-        <h3>Kalyanpur</h3>
-      </div>
+    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+      <img
+        className="res-logo"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e33e1d3ba7d6b2bb0d45e1001b731fcf"
+        alt="res-logo"
+      />
+      <h3>{resName}</h3>
+      <h4>{cuisine}</h4>
+      <h4>4.4 Stars</h4>
+      <h4>22 Minutes</h4>
     </div>
   );
 };

@@ -22,22 +22,25 @@
    margin: 10px;
 }
 
-.body {
-    border: 1px solid black;
-    margin-top: 10px;
+.res-card{
+    margin: 5px;
+    padding:5px;
+    width:200px;
+    height:370px;
 }
 
-.res-container {
-    display: flex;
-    justify-content: space-between;
-}
-.res-card{
+.res-card:hover{
     border: 1px solid black;
+    cursor: pointer;
 }
-.rating-container{
+
+.search{
+    padding:10px
+}
+.res-logo{
+    width:100%
+}
+.res-container{
     display: flex;
-}
-.res-logo-img {
-    width: 200px;
-    height: 150px;
+    flex-wrap: wrap;
 }
