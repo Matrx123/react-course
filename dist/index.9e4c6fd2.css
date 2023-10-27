@@ -23,8 +23,8 @@
 }
 
 .res-card {
-  width: 200px;
-  height: 450px;
+  width: 250px;
+  height: 480px;
   margin: 5px;
   padding: 5px;
 }
@@ -45,6 +45,11 @@
 .res-container {
   flex-wrap: wrap;
   display: flex;
+}
+
+.filter-btn {
+  cursor: pointer;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=index.9e4c6fd2.css.map */
