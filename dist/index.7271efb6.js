@@ -27186,6 +27186,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _constants = require("../utils/constants");
 const Header = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
@@ -27194,16 +27195,16 @@ const Header = ()=>{
                 className: "logo-container",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     className: "logo",
-                    src: "https://img.freepik.com/free-vector/free-delivery-logo-with-bike-man-courier_1308-48827.jpg?w=1380&t=st=1698240274~exp=1698240874~hmac=994a8c98de2b74cda18470eb3193499079d0d0600ec7f870282acfd72311237e",
+                    src: (0, _constants.LOGO_URL),
                     alt: "logo"
                 }, void 0, false, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 5,
+                    lineNumber: 7,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Header.js",
-                lineNumber: 4,
+                lineNumber: 6,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27214,45 +27215,45 @@ const Header = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 13,
+                            lineNumber: 11,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About us"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 14,
+                            lineNumber: 12,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Contact Us"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 15,
+                            lineNumber: 13,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 16,
+                            lineNumber: 14,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 12,
+                    lineNumber: 10,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Header.js",
-                lineNumber: 11,
+                lineNumber: 9,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Header.js",
-        lineNumber: 3,
+        lineNumber: 5,
         columnNumber: 5
     }, undefined);
 };
@@ -27266,7 +27267,15 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CDN_URL", ()=>CDN_URL);
+parcelHelpers.export(exports, "LOGO_URL", ()=>LOGO_URL);
+const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+const LOGO_URL = "https://img.freepik.com/free-vector/free-delivery-logo-with-bike-man-courier_1308-48827.jpg?w=1380&t=st=1698240274~exp=1698240874~hmac=994a8c98de2b74cda18470eb3193499079d0d0600ec7f870282acfd72311237e";
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27444,44 +27453,63 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _constants = require("../utils/constants");
+var _react = require("react");
+var _mockData = require("../utils/mockData");
 var _restrauntCard = require("./RestrauntCard");
 var _restrauntCardDefault = parcelHelpers.interopDefault(_restrauntCard);
+var _s = $RefreshSig$();
 const Body = ()=>{
+    _s();
+    const [restraunts, setRestraunts] = (0, _react.useState)((0, _mockData.resObj));
+    const filterRestraunts = ()=>{
+        const _data = restraunts.filter((item)=>item.info?.avgRating >= 4);
+        setRestraunts(_data);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "search",
-                children: "Search"
+                className: "filter",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "filter-btn",
+                    onClick: ()=>{
+                        filterRestraunts();
+                    },
+                    children: "Top Rated Restraunts"
+                }, void 0, false, {
+                    fileName: "src/components/Body.js",
+                    lineNumber: 16,
+                    columnNumber: 9
+                }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 7,
+                lineNumber: 15,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container",
-                children: (0, _constants.resObj).map((item)=>{
+                children: restraunts.map((item)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restrauntCardDefault.default), {
                         resData: item
                     }, item?.info?.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 10,
+                        lineNumber: 27,
                         columnNumber: 18
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 8,
+                lineNumber: 25,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 6,
+        lineNumber: 14,
         columnNumber: 5
     }, undefined);
 };
+_s(Body, "5aPGnQ7MO4CEYb/cZr+3ztwU/pI=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -27492,7 +27520,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./RestrauntCard":"iMcgc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/constants":"hB8jg"}],"iMcgc":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./RestrauntCard":"iMcgc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../utils/mockData":"iOpE9","react":"21dqq"}],"iMcgc":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0e5b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27502,6 +27530,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _constants = require("../utils/constants");
 const RestrauntCard = ({ resData })=>{
     const { info } = resData;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27512,45 +27541,45 @@ const RestrauntCard = ({ resData })=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "res-logo",
-                src: `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${info?.cloudinaryImageId}`,
+                src: `${(0, _constants.CDN_URL)}${info?.cloudinaryImageId}`,
                 alt: "res-logo"
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 5,
+                lineNumber: 7,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: info?.name
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 10,
+                lineNumber: 12,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: info?.cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 11,
+                lineNumber: 13,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: `${info?.avgRatingString} Stars`
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 12,
+                lineNumber: 14,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: info?.sla?.slaString
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 13,
+                lineNumber: 15,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntCard.js",
-        lineNumber: 4,
+        lineNumber: 6,
         columnNumber: 5
     }, undefined);
 };
@@ -27564,505 +27593,116 @@ $RefreshReg$(_c, "RestrauntCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iOpE9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "resObj", ()=>resObj);
-parcelHelpers.export(exports, "CDN_URL", ()=>CDN_URL);
-parcelHelpers.export(exports, "LOGO_URL", ()=>LOGO_URL);
 const resObj = [
     {
         info: {
-            id: "445079",
             name: "Subway",
             cloudinaryImageId: "1ace5fa65eff3e1223feb696c956b38b",
-            locality: "Civil Line",
-            areaName: "Shiv Nagar",
-            costForTwo: "\u20B9450 for two",
             cuisines: [
                 "Salads",
                 "Snacks",
                 "Desserts",
                 "Beverages"
             ],
-            avgRating: 4,
-            feeDetails: {
-                restaurantId: "445079",
-                fees: [
-                    {
-                        name: "BASE_DISTANCE",
-                        fee: 2500
-                    },
-                    {
-                        name: "BASE_TIME"
-                    },
-                    {
-                        name: "ANCILLARY_SURGE_FEE"
-                    }
-                ],
-                totalFee: 2500
-            },
-            parentId: "2",
-            avgRatingString: "4.0",
-            totalRatingsString: "500+",
+            avgRating: 4.5,
+            avgRatingString: "4.5",
             sla: {
-                deliveryTime: 29,
-                lastMileTravel: 6,
-                serviceability: "SERVICEABLE",
-                slaString: "29 mins",
-                lastMileTravelString: "6.0 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2023-10-27 23:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    imageBased: {},
-                    textBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {}
-        },
-        analytics: {},
-        cta: {
-            link: "https://www.swiggy.com/restaurants/subway-civil-line-shiv-nagar-rudrapur-445079",
-            type: "WEBLINK"
+                slaString: "29 mins"
+            }
         }
     },
     {
         info: {
-            id: "157856",
             name: "Gulab restaurant",
             cloudinaryImageId: "zcyjv7kwmqt6x64qzmfn",
-            locality: "Civil Lines",
-            areaName: "Civil Line",
-            costForTwo: "\u20B9150 for two",
             cuisines: [
                 "Fast Food",
                 "North Indian"
             ],
-            avgRating: 4,
-            veg: true,
-            feeDetails: {
-                restaurantId: "157856",
-                fees: [
-                    {
-                        name: "BASE_DISTANCE",
-                        fee: 1100
-                    },
-                    {
-                        name: "BASE_TIME"
-                    },
-                    {
-                        name: "ANCILLARY_SURGE_FEE"
-                    }
-                ],
-                totalFee: 1100
-            },
-            parentId: "91298",
-            avgRatingString: "4.0",
-            totalRatingsString: "10K+",
+            avgRating: 5,
+            avgRatingString: "5",
             sla: {
-                deliveryTime: 28,
-                lastMileTravel: 2.6,
-                serviceability: "SERVICEABLE",
-                slaString: "28 mins",
-                lastMileTravelString: "2.6 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2023-10-27 22:30:00",
-                opened: true
-            },
-            badges: {
-                imageBadges: [
-                    {
-                        imageId: "v1695133679/badges/Pure_Veg111.png",
-                        description: "pureveg"
-                    }
-                ]
-            },
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    imageBased: {
-                        badgeObject: [
-                            {
-                                attributes: {
-                                    description: "pureveg",
-                                    imageId: "v1695133679/badges/Pure_Veg111.png"
-                                }
-                            }
-                        ]
-                    },
-                    textBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {}
-        },
-        analytics: {},
-        cta: {
-            link: "https://www.swiggy.com/restaurants/gulab-restaurant-s-civil-line-rudrapur-157856",
-            type: "WEBLINK"
+                slaString: "28 mins"
+            }
         }
     },
     {
         info: {
-            id: "168570",
             name: "Roopam Bakers and sweets",
             cloudinaryImageId: "eqevnghbmt9nxsahmvae",
-            locality: "Jagatpura",
-            areaName: "Rudrapur Locality",
-            costForTwo: "\u20B9200 for two",
             cuisines: [
                 "Desserts"
             ],
             avgRating: 4.1,
-            veg: true,
-            feeDetails: {
-                restaurantId: "168570",
-                fees: [
-                    {
-                        name: "BASE_DISTANCE",
-                        fee: 1100
-                    },
-                    {
-                        name: "BASE_TIME"
-                    },
-                    {
-                        name: "ANCILLARY_SURGE_FEE"
-                    }
-                ],
-                totalFee: 1100
-            },
-            parentId: "171407",
             avgRatingString: "4.1",
-            totalRatingsString: "1K+",
             sla: {
-                deliveryTime: 29,
-                lastMileTravel: 2.5,
-                serviceability: "SERVICEABLE",
-                slaString: "29 mins",
-                lastMileTravelString: "2.5 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2023-10-27 22:30:00",
-                opened: true
-            },
-            badges: {
-                imageBadges: [
-                    {
-                        imageId: "v1695133679/badges/Pure_Veg111.png",
-                        description: "pureveg"
-                    }
-                ]
-            },
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    imageBased: {
-                        badgeObject: [
-                            {
-                                attributes: {
-                                    description: "pureveg",
-                                    imageId: "v1695133679/badges/Pure_Veg111.png"
-                                }
-                            }
-                        ]
-                    },
-                    textBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {}
-        },
-        analytics: {},
-        cta: {
-            link: "https://www.swiggy.com/restaurants/roopam-bakers-and-sweets-jagatpura-rudrapur-locality-rudrapur-168570",
-            type: "WEBLINK"
+                slaString: "29 mins"
+            }
         }
     },
     {
         info: {
-            id: "198744",
             name: "Pappu Dhaba Vaishnav Bhojanalya",
             cloudinaryImageId: "o2bsdgpawbnaiamywmji",
-            locality: "Model Colony",
-            areaName: "Rudrapur Locality",
-            costForTwo: "\u20B9200 for two",
             cuisines: [
                 "Chinese",
                 "North Indian"
             ],
             avgRating: 4,
-            veg: true,
-            feeDetails: {
-                restaurantId: "198744",
-                fees: [
-                    {
-                        name: "BASE_DISTANCE",
-                        fee: 1100
-                    },
-                    {
-                        name: "BASE_TIME"
-                    },
-                    {
-                        name: "ANCILLARY_SURGE_FEE"
-                    }
-                ],
-                totalFee: 1100
-            },
-            parentId: "155016",
             avgRatingString: "4.0",
-            totalRatingsString: "1K+",
             sla: {
-                deliveryTime: 25,
-                lastMileTravel: 3.6,
-                serviceability: "SERVICEABLE",
-                slaString: "25 mins",
-                lastMileTravelString: "3.6 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2023-10-27 23:59:00",
-                opened: true
-            },
-            badges: {
-                imageBadges: [
-                    {
-                        imageId: "v1695133679/badges/Pure_Veg111.png",
-                        description: "pureveg"
-                    }
-                ]
-            },
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    imageBased: {
-                        badgeObject: [
-                            {
-                                attributes: {
-                                    description: "pureveg",
-                                    imageId: "v1695133679/badges/Pure_Veg111.png"
-                                }
-                            }
-                        ]
-                    },
-                    textBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {}
-        },
-        analytics: {},
-        cta: {
-            link: "https://www.swiggy.com/restaurants/pappu-dhaba-vaishnav-bhojanalya-model-colony-rudrapur-locality-rudrapur-198744",
-            type: "WEBLINK"
+                slaString: "25 mins"
+            }
         }
     },
     {
         info: {
-            id: "212513",
             name: "Hotel Amber",
             cloudinaryImageId: "esd4en7ro5xwsetwcxzp",
-            locality: "Kashipur Bypass Road",
-            areaName: "Rudrapur Locality",
-            costForTwo: "\u20B9350 for two",
             cuisines: [
                 "North Indian",
                 "Snacks"
             ],
-            avgRating: 4,
-            feeDetails: {
-                restaurantId: "212513",
-                fees: [
-                    {
-                        name: "BASE_DISTANCE",
-                        fee: 1100
-                    },
-                    {
-                        name: "BASE_TIME"
-                    },
-                    {
-                        name: "ANCILLARY_SURGE_FEE"
-                    }
-                ],
-                totalFee: 1100
-            },
-            parentId: "97894",
-            avgRatingString: "4.0",
-            totalRatingsString: "1K+",
+            avgRating: 3.6,
+            avgRatingString: "3.6",
             sla: {
-                deliveryTime: 32,
-                lastMileTravel: 2.6,
-                serviceability: "SERVICEABLE",
-                slaString: "32 mins",
-                lastMileTravelString: "2.6 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2023-10-27 23:45:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    imageBased: {},
-                    textBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {}
-        },
-        analytics: {},
-        cta: {
-            link: "https://www.swiggy.com/restaurants/hotel-amber-kashipur-bypass-road-rudrapur-locality-rudrapur-212513",
-            type: "WEBLINK"
+                slaString: "32 mins"
+            }
         }
     },
     {
         info: {
-            id: "157741",
             name: "Punjabi Haandi",
             cloudinaryImageId: "me0xnlmose0mkh8dta6g",
-            locality: "Awas Vikas",
-            areaName: "Rudrapur Locality",
-            costForTwo: "\u20B9100 for two",
             cuisines: [
                 "North Indian"
             ],
-            avgRating: 3.9,
-            feeDetails: {
-                restaurantId: "157741",
-                fees: [
-                    {
-                        name: "BASE_DISTANCE",
-                        fee: 1100
-                    },
-                    {
-                        name: "BASE_TIME"
-                    },
-                    {
-                        name: "ANCILLARY_SURGE_FEE"
-                    }
-                ],
-                totalFee: 1100
-            },
-            parentId: "162308",
-            avgRatingString: "3.9",
-            totalRatingsString: "1K+",
+            avgRating: 3,
+            avgRatingString: "3",
             sla: {
-                deliveryTime: 29,
-                lastMileTravel: 2,
-                serviceability: "SERVICEABLE",
-                slaString: "29 mins",
-                lastMileTravelString: "2.0 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2023-10-27 22:59:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    imageBased: {},
-                    textBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {}
-        },
-        analytics: {},
-        cta: {
-            link: "https://www.swiggy.com/restaurants/punjabi-haandi-awas-vikas-rudrapur-locality-rudrapur-157741",
-            type: "WEBLINK"
+                slaString: "29 mins"
+            }
+        }
+    },
+    {
+        info: {
+            name: "Punjabi Dhaba",
+            cloudinaryImageId: "me0xnlmose0mkh8dta6g",
+            cuisines: [
+                "North Indian, Vegitarian, Birayani, Gu"
+            ],
+            avgRating: 2.5,
+            avgRatingString: "2.5",
+            sla: {
+                slaString: "29 mins"
+            }
         }
     }
 ];
-const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-const LOGO_URL = "https://img.freepik.com/free-vector/free-delivery-logo-with-bike-man-courier_1308-48827.jpg?w=1380&t=st=1698240274~exp=1698240874~hmac=994a8c98de2b74cda18470eb3193499079d0d0600ec7f870282acfd72311237e";
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["bgABq","1xC6H","2kQhy"], "2kQhy", "parcelRequire87d1")
 
